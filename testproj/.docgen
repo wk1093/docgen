@@ -1,0 +1,30 @@
+@@NEW_ALIAS(FUNCTION,
+"#### `@FUNC_NAME` returns `@S_FUNC_RET` with args `@S_FUNC_ARGS`:
+```cpp
+@S_NEXT_DECL
+@@```")
+
+@@NEW_COMMAND(TEST_CMD,
+#include <iostream>
+#include <cstdint>,
+{
+    std::cout << "test command running" << std::endl;
+    for (const auto& arg : args) {
+        std::cout << arg << std::endl;
+    }
+    return "test command result";
+@@})
+
+@@PROCESS_SOURCES(src/*.cpp)@@
+
+# Test Docs
+
+Hello
+
+# Functions
+
+@@INSERT_SECTION(Functions)@@
+
+# Done
+
+yay
